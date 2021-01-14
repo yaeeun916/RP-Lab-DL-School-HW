@@ -1,3 +1,5 @@
+#example 5
+
 def sort_tuple(dict1):
     dict2={} #입력한 dict1와 key, value가 서로 바뀐 dictionary
     sorted=() #반환할 tuple
