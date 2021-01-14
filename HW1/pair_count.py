@@ -1,3 +1,5 @@
+#example 1
+
 def pair_count(input_list):  #input_list=['bcd', 'bce', 'cce']
     pair_count=0
     for i in range(len(input_list)):
