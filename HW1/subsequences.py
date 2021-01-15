@@ -19,4 +19,4 @@ def subsequences3(iterable):
 
 
 #길이가 n일 때로 확장하면?
-
+#원소의 개수가 n인 부분집합 모두 출력
