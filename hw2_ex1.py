@@ -50,4 +50,4 @@ def MNISTdownload(path): #다운로드 경로는 함수의 인자로 입력 (입
     for j in range(10):
       if arr_test_label[i]==j:#label이 0~9중 무엇인지
         filenumber=len(os.listdir(datapath+'mnist_dataset/test/%d'%j)) #파일 이름 붙이기: label에 해당하는 폴더 내 파일 수
-        imsave(datapath+'mnist_dataset/test/%d/%d'%(j,filenumber), arr_test_image[i]) #arr_test_image[i]를 이미지로 parsing해서 적절한 경로에 저장
+        imsave(datapath+'mnist_dataset/test/%d/%d.png'%(j,filenumber), arr_test_image[i]) #arr_test_image[i]를 이미지로 parsing해서 적절한 경로에 저장
