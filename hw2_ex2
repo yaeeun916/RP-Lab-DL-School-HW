@@ -1,0 +1,23 @@
+import os
+import numpy as np 
+from PIL import Image
+
+
+class Dataset():
+  #생성자: 객체 생성 시점에 자동 호출 (객체 생성 시점에 self.img_list생성해야 indexing시 문제 안 생김)
+  #root은 MNISTdownload함수 호출시 사용한 전달인자 path+'/mnist_dataset' 
+  #phase는 'train' or 'test'
+  def __init__(self, root, phase): 
+    self.img_list=[]
+    for (path, dir, files) in os.walk(os.path.join(root, phase)):
+      for filename in files:
+        self.img_list.append("%s/%s"%(path, filename))
+
+  # indexing 이 일어나면 매직메쏘드인 __getitem__ 이 호출된다.
+  # self.img_list를 indexing 한 후,  (image, label) tuple 반환 
+  # image 는 numpy.ndarray, label은 int
+  def __getitem__(self,key): #self[key]로 실행됨
+    image=Image.open(self.img_list[key]) #read image
+    pixel=np.array(image) #image to numpy array
+    label=int(self.img_list[key].split(os.path.sep)[-2]) #[-3]은 train or test, [-2]는 label, [-1]은 파일 이름
+    return (pixel,label)
